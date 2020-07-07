@@ -10,8 +10,12 @@ rl.on('line', (line) => {
 });
 
 function solve(input) {
-  const n = input[0];
-  console.log(n);
+  const str = input[0];
+  let compare = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    compare += str[i];
+  }
+  console.log(str === compare ? 'True' : 'False');
 }
 
 rl.on('close', () => {

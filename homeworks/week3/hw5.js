@@ -12,18 +12,15 @@ rl.on('line', (line) => {
 function solve(input) {
   const m = input[0];
   let arr = [];
-  let a = 0;
-  let b = 0;
   function numberIsBigger(c, d) {
     const cStr = c.toString();
     const dStr = d.toString();
     const same = 'DRWA';
-    if (cStr.length > dStr.length) {
-      return true;
-    } if (cStr.length === dStr.length) {
-      for (let i = 0; i < c.length; i += 1) {
+    if (cStr === dStr) { return same; }
+    if (cStr.length > dStr.length) { return true; }
+    if (cStr.length === dStr.length) {
+      for (let i = 0; i < cStr.length; i += 1) {
         if (cStr[i] > dStr[i]) { return true; }
-        if (cStr[c.length - 1] === dStr[d.length - 1]) { return same; }
       }
     }
     return false;
@@ -47,9 +44,8 @@ function solve(input) {
   }
   for (let i = 1; i <= m; i += 1) {
     arr = input[i].toString().split(' ');
-
-    a = (arr[0]).toString();
-    b = (arr[1]).toString();
+    const a = arr[0];
+    const b = arr[1];
 
     if (Number(arr[2]) === 1) {
       console.log(printBig(a, b));
