@@ -1,15 +1,20 @@
 const request = require('request');
 
-
-const data = {
-  url: 'https://lidemy-book-store.herokuapp.com/books',
-  method: 'GET',
-};
-
-function topTenBooks(err, response, body) {
-  const json = JSON.parse(body);
-  for (let i = 0; i < 10; i += 1) {
-    console.log(`${json[i].id} ${json[i].name} `);
-  }
-}
-request(data, topTenBooks);
+const url = 'https://lidemy-book-store.herokuapp.com';
+request(
+  `${url}/books?_limit=10`, (err, response, body) => {
+    if (err) {
+      console.log(`失敗 ${err}`);
+    }
+    let json;
+    try {
+      json = JSON.parse(body);
+    } catch (wrong) {
+      console.log(`轉換失敗 ${wrong}`);
+      return;
+    }
+    for (let i = 0; i < json.length; i += 1) {
+      console.log(`${json[i].id} ${json[i].name} `);
+    }
+  },
+);
