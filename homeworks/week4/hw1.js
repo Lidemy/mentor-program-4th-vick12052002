@@ -14,7 +14,7 @@ request(
       return;
     }
     for (let i = 0; i < json.length; i += 1) {
-      console.log(`${json[i].id} ${json[i].name} `);
+      console.log(`${json[i].id} ${json[i].name}`);
     }
   },
 );

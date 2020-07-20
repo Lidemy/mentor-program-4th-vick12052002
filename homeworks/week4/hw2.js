@@ -10,7 +10,7 @@ function getList() {
   request(
     `${API}/books?_limit=20`, (err, response, body) => {
       if (err) {
-        console.log('失敗', +err);
+        console.log(`失敗 ${err}`);
       }
       let json;
       try {
@@ -53,7 +53,7 @@ function deleteBook(p) {
         return console.log(`刪除失敗 ${err}`);
       }
       if (response.statusCode >= 200 && response.statusCode <= 300) {
-        return console.log(`成功刪除 id 為${bookId} 的書籍 ${response.statusCode}`);
+        return console.log(`成功刪除 id 為${bookId} 的書籍`);
       }
       return console.log(`刪除失敗 statusCode 為${response.statusCode}`);
     },
