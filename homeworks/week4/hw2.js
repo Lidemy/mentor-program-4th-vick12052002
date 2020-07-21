@@ -72,7 +72,7 @@ function createBook(p) {
       if (err) {
         return console.log(`新增失敗 ${err}`);
       }
-      return console.log(`成功新增 為${newBook} 的書籍`);
+      return console.log(`成功新增 id 為${newBook} 的書籍`);
     },
   );
 }
@@ -98,7 +98,7 @@ if (doWhat === 'update') {
   updateBook(parameter);
 }
 if (doWhat === 'list') {
-  getList(parameter);
+  getList();
 }
 if (doWhat === 'read') {
   readBook(parameter);
