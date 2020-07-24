@@ -12,9 +12,6 @@ thead、tbody 、tfoot- 等同於 table 內又可細分為 header, body, footer�
 附上參考連結[What is benefit of thead
 ](https://stackoverflow.com/questions/2700379/what-is-benefit-of-thead)、[w3schools-tfoot](https://www.w3schools.com/tags/tag_tfoot.asp)
 
-----
-特殊字元
- &absp; －空白
 
 ## 請問什麼是盒模型（box modal）
 
@@ -62,7 +59,7 @@ box-sizing 是一個很方便的屬性，可以更改 width 所包含什麼，�
 | -------- | -------- | -------- |
 | static   | 預設，靜態  |元素會依照自己的 display 的類型 ，如果是 inline 就會在同行顯示，如果是 block 就會換行顯示，位置就不會特別變動    | 
 | relative   | 相對定位    |根據自己原本的位置做偏移，不會影響到其他人（其他元素不會改變），自己原本的位置「 會保留 」   | 
-| absolute   | 絕對定位  | 會抓取父層元素（ static 預設不算）直到抓到父層有更改，會依抓到最接近的父層元素的位置，做偏移位置，自己原本的位置「 會被後面的元素替補 」| 
+| absolute   | 絕對定位  | 會抓取上層元素（ static 預設不算）直到抓到上層有更改，會依抓到最接近的上層元素的位置，做偏移位置，自己原本的位置「 會被後面的元素替補 」| 
 | fixed   | 固定定位   | 根據 viewport 作定位依據，會覆蓋別人    | 
 
 
