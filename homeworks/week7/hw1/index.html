@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新拖延運動報名表單</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="form_main">
+    <section class="form_header">
+      <h1 class="header_title">新拖延運動報名表單</h1>
+      <section class="header_desc">
+        <p>活動日期：2020/12/10 ~ 2020/12/11<br>
+          活動地點：台北市大安區新生南路二段1號</p>
+      </section>
+      <p class="header_require">必填</p>
+    </section>
+    <form action="" class="form">
+      <label for="input_name" class="input_section">
+        <h3 class="input_title">暱稱</h3>
+        <input class="input_data" type="text"  placeholder="您的回答" id="input_name">
+      </label>
+      <label for="input_email" class="input_section">
+        <h3 class="input_title">電子郵件</h3>
+        <input class="input_data" type="email"  placeholder="您的電子郵件" id="input_email">
+      </label>
+      <label for="input_phone" class="input_section">
+        <h3 class="input_title">手機號碼</h3>
+        <input class="input_data" type="tel"  placeholder="您的手機號碼" id="input_phone">
+      </label>
+      <div class="input_section input_radio">
+        <h3 class="input_title">報名類型</h3>
+        <label for="input_apply_type1">
+          <input class="input_data" name="input_apply_type" type="radio" id="input_apply_type1">
+          <span> 躺在床上用想像力實作</span>
+        </label>
+        <label for="input_apply_type2">
+          <input class="input_data" name="input_apply_type" type="radio"  id="input_apply_type2">
+          <span> 趴在地上滑手機找現成的</span>
+        </label>
+      </div>
+      <label for="input_know" class="input_section">
+        <h3 class="input_title">怎麼知道這個活動的？</h3>
+        <input class="input_data" type="text"  placeholder="您的回答" id="input_know">
+      </label>
+      <label for="input_advice" class="input_section">
+        <h3 class="input_title_advice">其他</h3>
+        <p class="input_advice_desc">對活動的一些建議</p>
+        <input class="input_data" type="text" placeholder="您的回答" id="input_advice">
+      </label>
+      <label class="submit_box">
+        <input type="submit" value="提交" id="submit_form">
+      </label>
+      <p class="tips">請勿透過表單送出您的密碼。</p>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2020 &copy; Copyright. All rights Reserved.</p>
+  </footer>
+  <script src="index.js"></script>
+  
+</body>
+
+</html>
+
