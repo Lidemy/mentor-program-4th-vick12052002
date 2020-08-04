@@ -1,0 +1,126 @@
+main {
+  margin: 100px auto;
+  max-width: 630px;
+  text-align: center;
+  background-color: salmon;
+  padding: 20px 0;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+h2 {
+  font-size: 72px;
+  color: #fff;
+  text-shadow: 2px 2px 2px #444;
+  padding-top: 20px;
+}
+
+#todo_input {
+  border: none;
+  max-width: 530px;
+  width: 100%;
+  text-align: center;
+  height: 2em;
+  background-color: #ffcccc;
+  font-size: 26px;
+  margin: 18px 0;
+}
+
+#todo_list {
+  margin: 0 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.todo_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 26px;
+  margin-top: 20px;
+  background-color: #ffcccc;
+  order: -1;
+}
+input[type='checkbox'] {
+  display: none;
+}
+
+.completed{
+  opacity: 0.6;
+  background-color: blanchedalmond;
+  color: #888888;
+  text-decoration:line-through;
+  order: 10;
+}
+
+.checkbox {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: burlywood;
+  position: relative;
+  margin-right: 10px;
+}
+
+input[type='checkbox']:checked+.checkbox::before{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 13px;
+  width: 15px;
+  height: 5px;
+  background-color: #fff;
+  transform: rotateZ(50deg);
+  border-radius: 10px 100px;
+}
+
+input[type='checkbox']:checked +.checkbox::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: 8.5px;
+  width: 5px;
+  height: 23px;
+  background-color: #fff;
+  transform: rotateZ(45deg);
+  border-radius: 10px 100px;
+}
+
+
+
+.todo_item_text {
+  padding: 10px;
+  width: 90%;
+  text-align: left;
+}
+
+.btn_del {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  position: relative;
+  right: 15px;
+  cursor: pointer;
+}
+
+.btn_del::after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 3px;
+  height: 30px;
+  background-color: black;
+  transform: rotate(-45deg);
+}
+
+.btn_del::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 3px;
+  height: 30px;
+  background-color: black;
+  transform: rotate(45deg);
+}

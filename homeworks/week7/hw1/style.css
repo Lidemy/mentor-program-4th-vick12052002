@@ -56,13 +56,12 @@ body {
   content: " *";
   color: #e74149;
 }
-
 .input_radio {
-  display: flex;
-  flex-direction: column;
   line-height: 2em;
 }
-
+.input_radio_type{
+  display: block;
+}
 .input_title_advice {
   margin-bottom: 15px;
   font-size: 20px;
@@ -114,6 +113,13 @@ footer p {
   font-size: 16px;
   margin-top: 10px
 
+}
+.input-block__error{
+  color: red;
+  position: absolute;
+}
+.hide-error .input-block__error {
+  visibility: hidden;
 }
 
 @media (max-width:767px) {
