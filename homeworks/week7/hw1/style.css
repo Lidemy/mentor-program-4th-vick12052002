@@ -1,0 +1,132 @@
+body {
+  background-color: #F0F0F0;
+}
+
+.form_main {
+  max-width: 645px;
+  margin: 60px auto;
+  background-color: #fff;
+  border-top: solid 6px #fad312;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+  padding: 30px 40px;
+}
+
+.header_title {
+  padding-top: 15px;
+  font-size: 36px;
+  margin-bottom: 35px;
+  font-weight: bold;
+  width: auto;
+}
+
+.header_desc {
+  font-size: 14px;
+  color: #000;
+  line-height: 2em;
+}
+
+.header_require {
+  font-size: 16px;
+  color: #e74149;
+  margin-top: 22px;
+}
+
+.header_require::before {
+  content: "* ";
+  position: relative;
+  top: -3px;
+}
+
+.input_section {
+  margin-top: 50px;
+  display: block;
+}
+
+.input_title {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.input_data {
+  border: solid 1px #d0d0d0;
+  font-size: 16px;
+}
+
+.input_title::after {
+  content: " *";
+  color: #e74149;
+}
+.input_radio {
+  line-height: 2em;
+}
+.input_radio_type{
+  display: block;
+}
+.input_title_advice {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.input_advice_desc {
+  margin-bottom: 24px;
+}
+
+.submit_box {
+  display: block;
+  width: 90px;
+  height: 40px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  background-color: #fad312;
+  cursor: pointer;
+}
+
+.submit_box::after {
+  content: "提交";
+  position: relative;
+  top: 10px;
+  right: 20px;
+}
+
+.submit_box input {
+  opacity: 0;
+}
+
+.tips {
+  font-size: 14px;
+}
+
+footer {
+  background-color: #000;
+}
+
+footer p {
+  color: #999999;
+  font-size: 13px;
+  text-align: center;
+  line-height: 3em;
+}
+
+.warm_text {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px
+
+}
+.input-block__error{
+  color: red;
+  position: absolute;
+}
+.hide-error .input-block__error {
+  visibility: hidden;
+}
+
+@media (max-width:767px) {
+  .form_main {
+    margin: 0 auto;
+  }
+  footer {
+    width: 100%;
+  }
+}
