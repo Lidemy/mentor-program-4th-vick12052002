@@ -434,15 +434,28 @@ main {
     position: relative;
     right: 15%
   }
+  .navbar{
+    height: 1px;
+    overflow: hidden;
+  }
   .navbar ul {
     flex-direction: column;
     margin-top: 18px;
     position: relative;
     left: -100%;
     z-index: 3;
+    transition: ease-in-out 0.5s;
+    border-top: 1px solid rgba(17, 17, 17, 0.07) ;
+
+  }
+  
+  #menu_btn_control:checked~.header_wrap .navbar {
+   height: 100%;
+
   }
   #menu_btn_control:checked~.header_wrap .navbar ul {
     left: 0;
+    top: -3px;
     transition: ease-in-out 0.5s;
   }
   .navbar ul li {
@@ -477,5 +490,9 @@ main {
   }
   .comment_group {
     padding: 0 20px;
+  }
+
+  .answer_title{
+    line-height: 2em;
   }
 }
