@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toDoArray.push(newLi);
     localStorage.setItem('data', JSON.stringify(toDoArray));
   }
-  function delList(delId) {
+  function delTodoItem(delId) {
     const toDoArray = JSON.parse(localStorage.getItem('data'));
     const newArray = [];
     for (let t = 0; t < toDoArray.length; t += 1) {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (el.classList.contains('btn_del') && !(li.classList.contains('completed'))) {
       const id = li.childNodes[0].getAttribute('for');
-      delList(id);
+      delTodoItem(id);
       li.remove();
     }
     if (checkbox !== null) {
