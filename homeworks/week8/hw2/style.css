@@ -2,14 +2,20 @@ img {
   vertical-align: bottom;
 }
 
+.menu_check {
+  position: absolute;
+  visibility: hidden;
+}
+
 header {
   background-color: #243238;
-  box-shadow: 10px 10px 5px rgba(200, 200, 200, .7);
+  position: relative;
+  height: auto;
 }
 
 .header_area {
   margin: 0 auto;
-  height: 80px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   box-shadow: block 20px 20px;
@@ -21,6 +27,7 @@ header {
   color: rgb(220, 220, 220);
   font-size: 28px;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .navbar {
@@ -30,6 +37,51 @@ header {
   flex-direction: row;
   text-align: center;
   flex-wrap: nowrap;
+}
+
+.menu_btn {
+  background-color: #0e2b2d;
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 25%;
+  left: 10px;
+  border-radius: 5px;
+  margin-right: 20px;
+  display: none;
+  box-shadow: 0px 0px 5px 0px rgba(179, 167, 167, 0.75);
+}
+
+.menu_btn span {
+  display: block;
+  background-color: rgb(232, 238, 234);
+  position: absolute;
+  width: 40px;
+  height: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.menu_btn span::before {
+  content: ' ';
+  background-color: rgb(232, 238, 234);
+  display: block;
+  width: 40px;
+  height: 3px;
+  position: absolute;
+  top: -10px;
+}
+
+.menu_btn span::after {
+  content: ' ';
+  background-color: rgb(232, 238, 234);
+  display: block;
+  width: 40px;
+  height: 3px;
+  position: absolute;
+  top: 10px;
 }
 
 .navbar_item {
@@ -100,11 +152,65 @@ main {
 .homepage_top_game {
   margin: 20px 10px;
   cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+}
+
+.homepage_top_game a {
+  text-decoration: none;
+  text-align: center;
+  color: #11171a;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.homepage_top_game:hover {
+  transition: ease-in-out 0.3s;
+  transform: scale(1.05);
+}
+
+.homepage_top_game::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: translate(13%);
+  border-radius: 5px;
+}
+
+.homepage_top_game:hover::before {
+  background-color: rgba(200, 200, 200, .85);
+  z-index: 1;
+}
+
+.homepage_top_game:hover .top {
+  z-index: 2;
+  transition: ease-in-out 0.1s;
+}
+
+.top {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 60%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  transform: translate(35%, 50%);
+  z-index: -1;
 }
 
 .homepage_top_game img {
   width: 80%;
   height: auto;
+  border-radius: 5px;
 }
 
 .top_chs {
@@ -112,7 +218,7 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
   margin: 0 auto;
 }
 
@@ -121,6 +227,8 @@ main {
   max-width: 320px;
   height: auto;
   cursor: pointer;
+  border-radius: 10px;
+  position: relative;
 }
 
 .top_ch:hover {
@@ -128,9 +236,23 @@ main {
   transform: scale(1.05);
 }
 
+.top_ch a {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 .top_ch img {
   width: 100%;
   height: auto;
+}
+
+.ch_url {
+  width: 100%;
+  height: 100%;
 }
 
 .ch_info {
@@ -170,4 +292,54 @@ main {
 
 .hidden {
   display: none;
+}
+
+@media (max-width:768px) {
+  .header_area {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .menu_btn {
+    display: block;
+  }
+  .navbar {
+    display: block;
+    position: absolute;
+    width: 50vw;
+    height: auto;
+    background-color: #0e2b2d;
+    top: 100px;
+    left: -100%;
+    z-index: 10;
+    transition: ease-in-out 0.3s;
+  }
+#menu_check:checked~.header_area .navbar {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  z-index: 10;
+  transition: ease-in-out 0.3s;
+}
+  .navbar_item {
+    height: 50px;
+    padding: 10px;
+    width: auto;
+
+  }
+  .navbar_item a {
+    color: #ffffff;
+    padding-left: 30px;
+    text-align: start;
+    width: 40vw;
+    word-break:break-all;
+    white-space:pre-line;
+    text-shadow: 2px 2px 0.25px #11171a;
+  }
+  .top_chs{
+    max-width: 100%;
+  }
+  .top_chs{
+    justify-content: center;
+  }
 }

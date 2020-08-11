@@ -47,11 +47,9 @@ function getTopStream(game, cbf) {
         return cbf(null, json.streams);
       } catch (error) {
         console.log(error);
-        // console.log(xhr.responseText)
         return cbf('錯誤');
       }
     } else {
-      console.log(xhr.status);
       console.log('錯誤');
       return cbf('錯誤');
     }
@@ -92,22 +90,47 @@ function addChannelInfo(data) {
 function addChannel(data) {
   const channelsArea = document.querySelector('.top_chs');
   const channel = document.createElement('div');
+  const channelUrl = document.createElement('a');
+  const channelUrlSrc = document.createAttribute('href');
+  const channelUrlTarget = document.createAttribute('target');
   const chPreview = document.createElement('img');
   const chPreviewSource = document.createAttribute('src');
 
   channel.classList.add('top_ch');
+  channelUrl.classList.add('ch_url');
+  channelUrlSrc.value = data.channel.url;
+  channelUrlTarget.value = '_blank';
+  channelUrl.setAttributeNode(channelUrlSrc);
+  channelUrl.setAttributeNode(channelUrlTarget);
+
   chPreviewSource.value = data.preview.large;
   chPreview.setAttributeNode(chPreviewSource);
+
+  channel.appendChild(channelUrl);
   channel.appendChild(chPreview);
   channel.appendChild(addChannelInfo(data));
   channelsArea.appendChild(channel);
 }
 function getPage() {
   const path = window.location.hash;
-  const name = document.querySelector(`${path}`).getAttribute('game_name');
-  document.querySelector('.game_desc').classList.remove('hidden');
-  document.querySelector('.game_top5').classList.add('hidden');
+  const name = document.querySelector(path).getAttribute('game_name');
+  const gameDescClassList = document.querySelector('.game_desc').classList;
+  const top5AreaClassList = document.querySelector('.homepage_top_games').classList;
+  const streamsArea = document.querySelector('.top_chs');
+  const addNewStreamsArea = document.createElement('div');
+  const gamesArea = document.querySelector('.games_area');
+  if (streamsArea) {
+    streamsArea.remove();
+  }
+  addNewStreamsArea.classList.add('top_chs');
+  gamesArea.appendChild(addNewStreamsArea);
+
+  if (gameDescClassList.contains('hidden')) {
+    gameDescClassList.remove('hidden');
+    top5AreaClassList.add('hidden');
+  }
   document.querySelector('.game_title').innerHTML = name;
+
   getTopStream(name, (err, data) => {
     if (err) {
       return window.location.reload();
@@ -117,10 +140,10 @@ function getPage() {
     }
   });
 }
-
 function getHomepageTopGamesArea(data, index) {
   const homepageTopGames = document.querySelector('.homepage_top_games');
   const topGame = document.createElement('div');
+  const name = document.createElement('div');
   const gameImg = document.createElement('img');
   const source = document.createAttribute('src');
   const link = document.createElement('a');
@@ -129,7 +152,10 @@ function getHomepageTopGamesArea(data, index) {
   source.value = data.box.large;
   gameImg.setAttributeNode(source);
   href.value = `#top${index + 1}`;
+  name.innerText = data.name;
+  name.classList.add('top');
   link.setAttributeNode(href);
+  link.appendChild(name);
   link.appendChild(gameImg);
   topGame.appendChild(link);
   homepageTopGames.appendChild(topGame);
@@ -158,23 +184,20 @@ window.addEventListener('load', getTopGames((err, data) => {
     return window.location.reload();
   }
   loadNavbar(data);
-  // console.log(data)
-
-  document.querySelector('.game_title').innerHTML = 'Twitch Top five Games';
-  const path = window.location.hash;
-  if (path) {
-    getPage();
-    document.querySelector('.game_top5').classList.add('hidden');
+  const { hash } = window.location;
+  if (hash) {
+    return getPage();
   }
+  document.querySelector('.game_title').innerHTML = 'Twitch Top five Games';
 }));
 
 window.addEventListener('hashchange', getPage);
 document.getElementById('homepage').addEventListener('click', () => {
-  window.location.href = '/mentor-program-4th-vick12052002/homeworks/week8/hw2/';
+  window.location.href = '/mentor-program-4th-vick12052002/homeworks/week8/hw2/index.html';
 });
-
-// 待辦
-// 換頁重複append
-// 首頁畫面 判別轉換
-// navbar 微調
-//  轉換頁面 錯誤
+document.querySelector('.navbar').addEventListener('click', () => {
+  const menuBtn = document.getElementById('menu_check');
+  if (menuBtn.checked) {
+    menuBtn.checked = false;
+  }
+});
