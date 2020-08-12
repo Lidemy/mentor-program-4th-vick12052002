@@ -78,6 +78,12 @@ function addStreams(data) {
   streamsArea.appendChild(stream);
   stream.outerHTML = template;
 }
+function addEmptyStream() {
+  const streamsArea = document.querySelector('.top_chs');
+  const stream = document.createElement('div');
+  stream.classList.add('top_ch');
+  streamsArea.appendChild(stream);
+}
 function getPage() {
   const path = window.location.hash;
   const name = document.querySelector(path).getAttribute('game_name');
@@ -97,6 +103,7 @@ function getPage() {
     for (let i = 0; i < data.length; i += 1) {
       addStreams(data[i]);
     }
+    addEmptyStream();
   });
 }
 function getHomepageTopGamesArea(data, index) {

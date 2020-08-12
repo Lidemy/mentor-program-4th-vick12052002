@@ -224,7 +224,7 @@ main {
 
 .top_ch {
   margin: 20px 10px;
-  max-width: 320px;
+  width: 320px;
   height: auto;
   cursor: pointer;
   border-radius: 10px;
