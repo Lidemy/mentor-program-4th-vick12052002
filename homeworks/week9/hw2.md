@@ -11,7 +11,7 @@ TEXT:可存最大長度（65,535)，按照「 字符數量 」來佔用空間，
 
 1. 瀏覽器發送 Request 到 Server 端，Server 要在瀏覽器上設置 Cookie （例如'user':'123'），因此在 Request 的 Header 中 Set-Cookie 並回傳 Response
 2. 目前瀏覽器已儲存了'user'這個 key 在 Cookie 中
-3. Client 端在 Request 的 header 內夾帶 Cookie 的資料‘user‘:’123‘，在 Server 端接收到 Cookie 指定的 key 且 value 與資料庫的內容核對正確後， Server 端回傳 Response 就會依據 Cookie 內的資料，顯示目前是會員登入的狀態 (Server 端依據 Cookie 來顯示狀態)。
+3. Client 端在 Request 的 header 內夾帶 Cookie 的資料‘user‘:’123‘，在 Server 端接收到 Cookie 指定的 Key 且 Value 與資料庫的內容核對正確後， Server 端回傳 Response 就會依據 Cookie 內的資料，顯示目前是會員登入的狀態 (Server 端依據 Cookie 來顯示狀態)。
 
 ## 我們本週實作的會員系統，你能夠想到什麼潛在的問題嗎？
 1. 明文密碼：只要有心人士可以成功讀取到資料庫內的資料，就密碼外洩
