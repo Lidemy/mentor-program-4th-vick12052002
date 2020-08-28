@@ -1,0 +1,149 @@
+.warming{
+	margin: 0 auto;
+  background-color: #F7C4C7;
+	color: #AC2D2E;
+	text-align: center;
+	padding: 20px 0;
+	font-weight: bold;
+	font-size: 18px;
+}
+.remind{
+	font-size: 28px;
+	font-weight: bold;
+	margin-bottom: 16px;
+
+}
+
+.welcome{
+	font-size: 26px;
+	margin-bottom: 16px;
+}
+
+.board{
+	position: relative;
+	margin: 0 auto;
+	max-width: 720px;
+	background-color: hsl(58, 100%, 86%);
+	width: 100%;
+	padding: 20px 15px 20px 30px;
+	box-shadow: 2px 2px 3px #9a9871;
+	border-radius: 5px;
+}
+.board_title{
+	font-size: 48px;
+	margin:20px 0;
+	text-shadow:1px 1px 2px #9a9871;
+}
+
+.btn_group{
+	position: absolute;
+	top:0;
+	right: 0;
+	display: flex;
+}
+.btn{
+	text-decoration: none;
+	background-color: cornsilk;
+	width: 100px;
+	text-align: center;
+	border: hsl(58, 31%, 66%) 1px solid;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 2px 2px 3px #9a9871;
+	margin:5px;
+	transition: ease-in-out 0.3s;
+}
+.btn a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	font-size: 18px;
+	color: #9a9871;
+	line-height: 2.5em;
+	transition: ease-in 0.1s;
+
+}
+
+.btn:hover{
+	color:black;
+	box-shadow: 2px 2px 3px #444;
+}
+
+.btn:hover a{
+	color:black;
+	text-shadow: 1px 1px 1px #aaaaaa;
+}
+.input-area {
+	margin: 10px 0;
+	font-size: 22px;
+}
+
+.input-area_name input[type="text"],textarea, .input-area input{
+	border-radius: 5px;
+  border: 1px solid #D0DCE8;
+  padding: 5px 5px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.comment{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.submit_btn{
+font-size: 18px;
+color: #9a9871;
+line-height: 2.5em;
+transition: ease-in 0.1s;
+}
+
+.header_hr{
+	height: 1px;
+	width: 95%;
+	background-color: #9a9871;
+	margin:20px	auto;
+}
+
+.board_body{
+	padding: 20px 0 10px 0;
+}
+.card{
+	display: flex;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.card:last-of-type{
+	margin-bottom: 30px;
+}
+.card_ph{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: bisque;
+	margin-right:10px ;
+}
+.card_info-area{
+	flex:1;
+
+}
+.card_info-user{
+	display: flex;
+
+}
+.card_info_name{
+	margin-right:10px;
+	margin-bottom:10px ;
+	color: rgb(32, 35, 36);
+	font-weight: bold;
+	font-size: 18px;
+}
+.card_info_time{
+	color: #aaaaaa;
+}
+.card_comment{
+	font-size: 16px;
+	line-height: 1.5em;
+	word-break: break-word;
+}
