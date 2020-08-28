@@ -116,9 +116,6 @@ header .header_wrap {
   max-width: 100vw;
   height: 767px;
   background: url(./img/games-bn.png) center no-repeat;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
 }
 
 .wrapper h1 {
@@ -136,7 +133,6 @@ header .header_wrap {
 
 main {
   margin: 0 auto;
-  /* height: auto; */
   padding-top: 84px;
 }
 
