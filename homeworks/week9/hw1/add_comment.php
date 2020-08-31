@@ -2,7 +2,7 @@
   require_once('conn.php');
   require_once('utils.php');
   if(empty($_POST['comment'])){
-    header('Location:index.php?&errCode=1');
+    header('Location:index.php?errCode=1');
     die ('資料不齊全');
   }
 
