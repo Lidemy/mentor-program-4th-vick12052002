@@ -1,7 +1,6 @@
 <?php
 require_once('conn.php');
 ?>
-
 <body>
   <?php
   include_once('./template/header.php')

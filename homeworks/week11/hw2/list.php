@@ -1,10 +1,5 @@
 <?php
 require_once('conn.php');
-session_start();
-$username = NULL;
-if (!empty($_SESSION['username'])) {
-  $username = $_SESSION['username'];
-}
 $sql = "SELECT * FROM alirong_post  WHERE is_delete IS NULL ORDER BY `post_id` DESC";
 $stmt = $conn->prepare($sql);
 $res = $stmt->execute();

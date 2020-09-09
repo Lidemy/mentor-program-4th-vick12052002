@@ -15,7 +15,6 @@ $content = $_POST['content'];
 $id = $_POST['id'];
 
 $sql ="INSERT INTO `alirong_post`(`username`, `title`, `content`,`type`) VALUES (?,?,?,?)";
-
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('sssi',$username,$title,$content,$type);
 $res=$stmt->execute();

@@ -18,9 +18,8 @@ if (!$res) {
 }
 $res = $stmt->get_result();
 $row = $res->fetch_assoc();
-
-
 ?>
+
 <?php
 include_once('./template/header.php');
 ?>
@@ -33,14 +32,13 @@ include_once('./template/header.php');
     </div>
   </div>
   <ul class="post_area page_area">
-        <li class="post_card page_card ">
-         <?php 
-         include_once('./template/post_list.php')
-         ?>
-        </li>
-    </ul>
+    <li class="post_card page_card ">
+      <?php
+      include_once('./template/post_list.php')
+      ?>
+    </li>
+  </ul>
 </main>
-
 <?php
 include_once('./template/footer.php')
 ?>

@@ -1,10 +1,8 @@
 <?php
 require_once('conn.php');
 session_start();
-include_once('./template/header.php');
-$username = NULL;
 require_once('check_permission.php');
-$username = $_SESSION['username'];
+include_once('./template/header.php');
 ?>
 <main>
   <div class="banner">

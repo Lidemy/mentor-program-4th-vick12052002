@@ -13,14 +13,12 @@ function getPostData($username){
   return $res;
 }
 
-function escape($string)
-{
+function escape($string){
   $newStr = htmlspecialchars($string, ENT_QUOTES);
   return $newStr;
 }
 
-function getTypeData($type)
-{
+function getTypeData($type){
   global $conn;
   $sql = "SELECT * FROM alirong_post where type=? AND is_delete IS NULL";
   $stmt = $conn->prepare($sql);
@@ -32,4 +30,3 @@ function getTypeData($type)
   $res = $stmt->get_result();
   return $res;
 }
-?>

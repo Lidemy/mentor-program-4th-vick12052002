@@ -2,10 +2,6 @@
 require_once('conn.php');
 require_once('utils.php');
 session_start();
-$username = NULL;
-if (!empty($_SESSION['username'])) {
-  $username = $_SESSION['username'];
-}
 $sql = "SELECT * FROM alirong_category  WHERE is_deleted IS NULL ORDER BY `type` ASC";
 $stmt = $conn->prepare($sql);
 $res = $stmt->execute();

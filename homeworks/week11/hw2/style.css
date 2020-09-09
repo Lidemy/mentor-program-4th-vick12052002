@@ -453,6 +453,7 @@ footer {
 }
 .page_area .page_card{
   height: 100%;
+  overflow: scroll;
 }
 
 .type_list{

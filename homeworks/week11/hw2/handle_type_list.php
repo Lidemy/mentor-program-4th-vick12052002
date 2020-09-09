@@ -8,8 +8,8 @@ if (empty($_GET['type'])) {
   die($conn->error);
 }
 $type = $_GET['type'];
-$sql = "SELECT * FROM alirong_post WHERE is_delete IS NULL AND type=? ORDER BY `post_id` DESC";
 
+$sql = "SELECT * FROM alirong_post WHERE is_delete IS NULL AND type=? ORDER BY `post_id` DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $type);
 $res = $stmt->execute();
