@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/journal/bootstrap.min.css"
+    integrity="sha384-QDSPDoVOoSWz2ypaRUidLmLYl4RyoBWI44iA5agn6jHegBxZkNqgm2eHb6yZ5bYs" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <title>Week12－留言板</title>
+
+  <script>
+    function escape(toOutput) {
+      return toOutput.replace(/\&/g, '&amp;')
+        .replace(/\</g, '&lt;')
+        .replace(/\>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/\'/g, '&#x27')
+        .replace(/\//g, '&#x2F');
+    }
+
+    function appendCommentToDOM(comment, isPrepend) {
+      const commentsDOM = $('.comments');
+      let element = `
+          <div class="card">
+            <div class="card-body">
+            <h5 class="card-title"> ${escape(comment.nickname)}</h5>
+            <p class="card-subtitle mb-2 text-muted">${escape(comment.created_time)}</p>
+            <p class="card-text">${escape(comment.content)}</p>
+          </div>`;
+      if (isPrepend) {
+        commentsDOM.prepend(element);
+      } else {
+        commentsDOM.append(element);
+      }
+    }
+    function addComment(place) {
+      let newCommentData = {
+        'site_key': 'ali',
+        'nickname': $('input[name=nickname]').val(),
+        'content': $('textarea[name=content]').val()
+      }
+      $.ajax({
+        type: "POST",
+        url: "http://mentor-program.co/mtr04group5/alirong/week12/hw1/api_add_comments.php",
+        data: newCommentData
+      }).done(data => {
+        if (!data.ok) {
+          alert(data.message);
+          return
+        }
+        newCommentData = data.discussions;
+        appendCommentToDOM(newCommentData, true);
+        $('input[name=nickname]').val('');
+        $('textarea[name=content]').val('');
+      });
+    }
+    function loadComments(container, data) {
+      for (let i = 0; i < data.length; i += 1) {
+        const comment = data[i];
+        appendCommentToDOM(comment);
+      }
+    }
+
+    function appendMoreBtn(container) {
+      const moreCommentBtn = `<button type="button" class="btn btn-primary more-btn">More</button>`;
+      container.append(moreCommentBtn);
+    }
+
+    function getCommentsAPI(siteKey, before, cb) {
+      let url = `http://mentor-program.co/mtr04group5/alirong/week12/hw1/api_comments.php?site_key=${siteKey}`
+      if (before) {
+        url += '&before=' + before
+      }
+      $.ajax(
+        url,
+      ).done((data) => {
+        cb(data)
+      })
+    }
+    const siteKey = 'ali';
+    let lastId = null;
+    let isEnd = false;
+    const commentsDOM = $('.comments');
+
+    $(document).ready(() => {
+      getComments();
+      $(".comments").on("click", ".more-btn", () => {
+        $(".more-btn").remove();
+        getComments();
+      })
+      $(".add_comment_form").submit(e => {
+        e.preventDefault();
+        addComment(commentsDOM);
+      })
+
+    })
+    function getComments() {
+      const commentsDOM = $('.comments');
+
+      getCommentsAPI(siteKey, lastId, data => {
+        if (!data.ok) {
+          alert(data.message)
+          return
+        }
+        const comments = data.discussions;
+        loadComments(commentsDOM, comments);
+        let length = comments.length;
+        //假如 comment 少於五則，就直接回傳，不執行下面程式碼
+        if (length < 5) {
+          return
+        } else {
+          lastId = comments[length - 1].id;
+        }
+        appendMoreBtn(commentsDOM);
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <form class="add_comment_form">
+      <div class="form-group">
+        <label for="form_nickname">暱稱</label>
+        <input type="text" name="nickname" class="form-control" id="form_nickname" placeholder="請輸入暱稱">
+      </div>
+      <div class="form-group">
+        <label for="content_textarea">留言內容</label>
+        <textarea name="content" class="form-control" id="form_content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">送出</button>
+    </form>
+
+    <div class="comments">
+    </div>
+
+  </div>
+</body>
+
+</html>
