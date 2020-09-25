@@ -1,7 +1,6 @@
 <?php
 require_once('conn.php');
 require_once('utils.php');
-
 $page = 1;
 if(!empty($_GET['page'])){
   $page=intval($_GET['page']);
@@ -131,18 +130,18 @@ if (!empty($_SESSION['username'])) {
       }
       $res = $stmt->get_result(); 
       $row = $res ->fetch_assoc();
-      $count  =$row['count'];
+      $count = $row['count'];
       $total_page = ceil($count / $item_per_page);
       ?>
         <span>總共 <?php echo $row['count']; ?> 筆留言，</span>
         <span>頁數 <?php echo $page ;?> / <?php echo $total_page; ?></span>
     </div>
     <div class="paginator">
-      <?php if ($page != 1){ ?>
+      <?php if ($page !== 1){ ?>
         <a href="index.php?page=1">首頁</a>
         <a href="index.php?page=<?php echo $page - 1?>">上一頁</a>
       <?php } ?>
-      <?php if ($page != $total_page ){ ?>
+      <?php if ($page !== $total_page ){ ?>
         <a href="index.php?page=<?php echo $page + 1; ?>">下一頁</a>
         <a href="index.php?page=<?php echo $total_page;?>">最末頁</a>
       <?php } ?>
