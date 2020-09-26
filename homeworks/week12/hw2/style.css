@@ -18,10 +18,14 @@ header{
 }
 .todoItem span{
   font-size: 22px;
+  word-break: break-word;
 }
 .hidden{
   display: none;
 }
 .is_deleted {
   display: none;
+}
+.btn-group{
+  max-height: 50px;
 }

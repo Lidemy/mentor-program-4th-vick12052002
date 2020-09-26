@@ -16,7 +16,7 @@ function escape(toOutput) {
 function appendDOMitem(val, todoId, is_deleted, is_completed) {
   const toDoContainer = $('.todos');
   const element = `<li class="list-group-item  todoItem ${is_deleted ? 'is_deleted' : ''} ${is_completed ? 'order-1' : ''}" todo-id="${escape(todoId)}">
-  <div class="d-flex justify-content-between " >
+  <div class="d-flex justify-content-between align-items-center"" >
     <span class="${is_completed ? 'done' : ''}">${escape(val)}</span>
     <div class="btn-group " role="group" >
       <button type="button" class="btn btn-primary finish-btn">${is_completed ? 'unfinished' : 'finish'}</button>
@@ -59,7 +59,7 @@ function handelUpdateTodoContent(e, container, tokenId) {
   if (updateValue === '') {
     alert('請輸入更新資料');
   } else {
-    const nowSpan = `<span>${updateValue}</span> `;
+    const nowSpan = `<span>${escape(updateValue)}</span> `;
     container.find('.update-item-form').replaceWith(nowSpan);
     todoList[tokenId].content = updateValue;
   }
@@ -72,7 +72,7 @@ function editTodoItem(e) {
     return;
   }
   const todoId = todoItem.attr('todo-id');
-  const content = todoItem.find('span').text();
+  const content = todoItem.find('span').html();
   const span = todoItem.find('span');
   const form = ` <form class="update-item-form d-flex" method="POST"  >
   <div class="form-group d-flex mb-0 flex-column flex-sm-row">
