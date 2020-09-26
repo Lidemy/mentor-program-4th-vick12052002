@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/journal/bootstrap.min.css" integrity="sha384-QDSPDoVOoSWz2ypaRUidLmLYl4RyoBWI44iA5agn6jHegBxZkNqgm2eHb6yZ5bYs" crossorigin="anonymous">
+  <title>Todolist</title>
+</head>
+
+<body>
+  <header class="bg-light">
+    <div class="navbar max-width">
+      <ul class=" nav nav-pills nav-fill  w-100 ">
+        <li class="nav-item  h-100 ">
+          <a class="nav-link  h-100 py-3 all-tasks" href="">My Task</a>
+        </li>
+        <li class="nav-item  h-100">
+          <a class="nav-link py-3 working" href="">In Progress</a>
+        </li>
+        <li class="nav-item h-100">
+          <a class="nav-link py-3 completed" href="">Completed</a>
+        </li>
+      </ul>
+    </div>
+    <div class="max-width ">
+      <div class="tool-btns">
+        <button type="button" class="btn btn-danger clear-btn">reset</button>
+        <button type="button" class="btn btn-info save-btn">save</button>  
+      </div>
+
+    </div>
+  </header>
+  <h1 class="text-center my-4">
+    Todolist
+  </h1>
+
+  <form class="max-width add-list-form" method="POST" action="" >
+    <div class="form-group d-flex  flex-column flex-sm-row">
+      <input type="text" class="form-control-lg  mr-0 mr-sm-1 flex-grow-0 bg-light flex-sm-grow-1" 
+        placeholder="請輸入代辦事項">
+      <button type="submit" class="btn btn-primary flex-grow-0 flex-sm-grow-0 mt-2">Submit</button>
+    </div>
+  </form>
+  <ul class="todos list-group max-width bg-primary p-2 mb-2">
+  </ul>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

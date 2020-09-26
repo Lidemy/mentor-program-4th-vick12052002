@@ -1,0 +1,27 @@
+.max-width{
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 18px;
+  position: relative;
+}
+header{
+  position: relative;
+}
+.tool-btns{
+  position: absolute;
+  top:0;
+  right:0
+}
+.done{
+  text-decoration: line-through;
+  color: #999999;
+}
+.todoItem span{
+  font-size: 22px;
+}
+.hidden{
+  display: none;
+}
+.is_deleted {
+  display: none;
+}
