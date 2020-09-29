@@ -1,5 +1,5 @@
+/* eslint-disable no-undef */
 // eslint-disable-next-line import/no-unresolved
-import $ from 'jquery';
 import { getComments, addComment } from './api';
 import { appendCommentToDOM, appendStyle } from './utils';
 import { cssTemplate, getLoadMoreBtn, getForm } from './template';
