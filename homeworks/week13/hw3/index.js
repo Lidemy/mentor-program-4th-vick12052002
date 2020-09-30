@@ -11,8 +11,12 @@ function getTopGames(cb) {
       Accept: 'application/vnd.twitchtv.v5+json',
       'Client-ID': clientId,
     },
-  }).then(response => response.json())
-    .then(json => cb(null, json.top)).catch((err) => {
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+  }).then(json => cb(null, json.top))
+    .catch((err) => {
       console.log(err);
       return cb('錯誤');
     });
@@ -30,11 +34,14 @@ function getTopStream(game, cbf) {
       Accept: 'application/vnd.twitchtv.v5+json',
       'Client-ID': clientId,
     },
-  }).then(response => response.json())
-    .catch((err) => {
-      console.log(err);
-      return cbf('錯誤');
-    }).then(json => cbf(null, json.streams));
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+  }).then(json => cbf(null, json.streams)).catch((err) => {
+    console.log(err);
+    return cbf('錯誤');
+  });
 }
 function addStreams(data) {
   const streamsArea = document.querySelector('.top_chs');
