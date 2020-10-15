@@ -7,7 +7,7 @@ hntp1.hinet.net，IP 位址為「168.95.192.1」。
 
 以上是由網路供應商所提供的 DNS，而 Google 也有提供免費公開的 DNS ，對 Google 的好處以及對一般大眾的好處是什麼？
 
-Google 的好處: 收集大數據資料（ 進而日後可提供更符合該地區性的資料 ）、
+Google 的好處: 收集大數據資料（ 進而日後可提供更符合該地區性的資料 ）
 一般大眾的好處: 免費使用、號稱上網速度比較快（因直接取得 DNS 查詢結果，讀存快取）、提升網路安全（可以自動幫我們將惡意網站擋下來或做其他應用）
 
 不過俗話說，不用錢的最貴，所以在考量是否要使用 Google 公開的 DNS 前，可以多參考一些資料，蠻推薦這篇文章[使用 Google Public DNS 服務，上網速度不一定會變快！](https://blog.miniasp.com/post/2009/12/08/Use-Google-Public-DNS-may-not-surfing-faster-as-you-expected) ，有很多細節執得我們去思考。
