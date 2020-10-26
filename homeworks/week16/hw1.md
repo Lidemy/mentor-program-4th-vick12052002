@@ -11,7 +11,7 @@ console.log(5)
 ```
 
 程式碼最終會印出 1 -> 3 -> 5 -> 2 -> 4
-首先要先提到 JavaScript 是個單程線（single threaded）的程式語言，在正常的情況下，程式碼會一個任務處理完再處理其他的任務，反觀瀏覽器是屬於多程線，像是異步處理的功能，例如：ajax、DOM、setTimeout，就都是屬於 ＷebAPI 所提供的。
+首先要先提到 JavaScript 是個單程線 single threaded （單執行緒）的程式語言，在正常的情況下，程式碼會一個任務處理完再處理其他的任務，反觀瀏覽器是屬於多程線，像是異步處理的功能，例如：ajax、DOM、setTimeout，就都是屬於 ＷebAPI 所提供的。
 
 所以根據上方的程式碼我們流程我們要先區分成兩塊「call stack、Callback Queue」
 call stack：所有呼叫的 function 都會被堆疊在 stack 中，直到完成才會清空，而他的原則是先進後出
