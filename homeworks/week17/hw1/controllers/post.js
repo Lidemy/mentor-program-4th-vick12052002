@@ -3,8 +3,7 @@
 
 const db = require('../models');
 
-const postModel = db.Post;
-const categoryModel = db.Category;
+const { Post: postModel, Category: categoryModel } = db;
 
 const postController = {
   getPost: (req, res) => {
@@ -19,7 +18,7 @@ const postController = {
         req.flash('errorMessage', '沒有這篇文章');
         return res.redirect('/');
       }
-      res.render('page', { post: post });
+      res.render('page', { post });
     }).catch((err) => {
       console.log(err.toString());
       req.flash('errorMessage', '文章讀取錯誤');
@@ -46,7 +45,7 @@ const postController = {
   },
   addPost: (req, res) => {
     categoryModel.findAll().then((types) => {
-      res.render('add_post', { types: types });
+      res.render('add_post', { types });
     }).catch(err => req.flash('errorMessage', err.toString()));
   },
   handlesAddPost: (req, res, next) => {
@@ -79,7 +78,7 @@ const postController = {
         return res.redirect('/');
       }
       categoryModel.findAll().then((types) => {
-        res.render('update', { post: post, types: types });
+        res.render('update', { post, types });
       });
     }).catch((err) => {
       console.log(err.toString());
@@ -100,14 +99,17 @@ const postController = {
         title: title,
         CategoryId: type,
       });
-    }).then(() => {
-      console.log('更新 success!');
-      res.redirect('/');
-    }).catch((err) => {
-      console.log(err.toString());
-      req.flash('errorMessage', '文章更新失敗');
-      res.redirect('/');
-    });
+    })
+      .then(() => {
+        console.log('更新 success!');
+      })
+      .catch((err) => {
+        console.log(err.toString());
+        req.flash('errorMessage', '文章更新失敗');
+      })
+      .finally(() => {
+        res.redirect('/');
+      });
   },
   addCategory: (req, res) => {
     res.render('add_category');
