@@ -7,9 +7,7 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
-const userModel = db.User;
-const postModel = db.Post;
-const categoryModel = db.Category;
+const { User: userModel, Post: postModel, Category: categoryModel } = db;
 
 const userController = {
   homePage: (req, res) => {
@@ -19,9 +17,7 @@ const userController = {
       },
       include: categoryModel,
     }).then((posts) => {
-      res.render('index', {
-        posts: posts,
-      });
+      res.render('index', { posts });
     });
   },
   aboutMe: (req, res) => {
@@ -31,7 +27,7 @@ const userController = {
     categoryModel.findAll({
       include: postModel,
     }).then((types) => {
-      res.render('category', { types: types });
+      res.render('category', { types });
     }).catch(err => req.flash('errorMessage', err.toString()));
   },
   login: (req, res) => {
@@ -47,9 +43,7 @@ const userController = {
         is_deleted: 0,
       },
     }).then((posts) => {
-      res.render('list', {
-        posts: posts,
-      });
+      res.render('list', { posts });
     }).catch((err) => {
       console.log(err.toString());
       req.flash('errorMessage', '讀取失敗');
@@ -61,9 +55,7 @@ const userController = {
         is_deleted: 0,
       },
     }).then((posts) => {
-      res.render('system', {
-        posts: posts,
-      });
+      res.render('system', { posts });
     }).catch((err) => {
       console.log(err.toString());
       req.flash('errorMessage', '讀取失敗');
