@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(flash());
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: process.env.TEST,
   resave: false,
   saveUninitialized: true,
 }));

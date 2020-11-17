@@ -104,12 +104,13 @@ const lotteryController = {
       });
     }).then(() => {
       console.log('更新成功!');
-      res.redirect('/');
     }).catch((err) => {
       console.log(err.toString());
       req.flash('errorMessage', '獎項更新失敗');
-      res.redirect('/');
-    });
+    })
+      .finally(() => {
+        res.redirect('/');
+      });
   },
   getLottery: (req, res) => {
     let allPrices;
