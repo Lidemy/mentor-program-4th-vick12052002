@@ -36,13 +36,13 @@ const FormInput = styled.input`
 `;
 
 export default function TodoInput({
-  resetClick, onChangeFunction, onClick, inputValue,
+  resetClick, onChangeTodoInput, onClick, inputValue,
 }) {
   return (
     <TodoForm>
       <FormTitle>ToDoList </FormTitle>
       <ResetButton onClick={resetClick}> 清空 </ResetButton>
-      <FormInput type="text" onChange={onChangeFunction} value={inputValue} />
+      <FormInput type="text" onChange={onChangeTodoInput} value={inputValue} />
       <FormInput onClick={onClick} type="submit" />
     </TodoForm>
   );

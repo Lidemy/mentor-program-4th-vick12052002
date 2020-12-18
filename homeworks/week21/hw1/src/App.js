@@ -25,7 +25,7 @@ export default function App() {
   ]);
   const [status, setStatus] = useState(null);
   const [value, setValue] = useState('');
-  const id = useRef(2);
+  const id = useRef(todos.id);
   const handleInputButtonClick = (e) => {
     e.preventDefault();
     if (value.length === 0) return;
@@ -56,11 +56,11 @@ export default function App() {
   // eslint-disable-next-line array-callback-return
   const handleTodosModel = todos.filter((todo) => {
     if (!status) return true;
-    if (status === 'done') return todo.isDone === true;
-    if (status === 'undone') return todo.isDone === false;
+    if (status === 'done') return todo.isDone;
+    if (status === 'undone') return todo.isDone;
   });
-  const setTodoStatus = (model) => {
-    setStatus(model);
+  const setTodoStatus = (mode) => {
+    setStatus(mode);
   };
   const handelResetTodos = (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ export default function App() {
     <div className="App">
       <TodoInput
         resetClick={handelResetTodos}
-        onChangeFunction={handleInputValue}
+        onChangeTodoInput={handleInputValue}
         onClick={handleInputButtonClick}
         inputValue={value}
       />

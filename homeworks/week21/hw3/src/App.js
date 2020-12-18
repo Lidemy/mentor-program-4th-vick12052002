@@ -29,13 +29,21 @@ function App() {
   const handleCheckInputValue = (e) => {
     e.preventDefault();
     // 檢查問題是否必填，不是則回傳
-    const filterIsValid = questions.map(question => (!question.required ? question
-      : question.value.length === 0 ? { ...question, isValid: true } // 檢查是否為空值
-        : checkValid(question) ? { ...question, isValid } : { ...question, isValid: true }), // 是否符合資料格式
-    );
-    setQuestions(filterIsValid);
+    const checkIsValid = questions.map((question) => {
+      if (!question.required) {
+        return question;
+      }
+      if (question.value.length === 0) {
+        return { ...question, isValid: true };
+      }
+      if (checkValid(question)) {
+        return { ...question, isValid };
+      }
+      return { ...question, isValid: true };
+    });
+    setQuestions(checkIsValid);
     // 檢查是否還有符合規定的資料格式或空值，如果無，則回傳 undefined
-    const checkError = filterIsValid.find(item => item.isValid === true);
+    const checkError = checkIsValid.find(item => item.isValid === true);
     if (typeof checkError !== 'undefined') {
       hasError = true;
     }
